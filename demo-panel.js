@@ -6,9 +6,9 @@
     <div class="demo-panel-body">
       <p class="demo-panel-lead">Vista previa completa (base + opcionales). Montos en guaraníes. No es cobro real.</p>
       <ul>
-        <li><span class="tag base">Base · Gs. 10.000.000</span> Catálogo, stock, guía de tallas, WhatsApp, sucursales</li>
-        <li><span class="tag opt">+ Gs. 250.000</span> WhatsApp con carrito armado</li>
-        <li><span class="tag opt">+ Gs. 1.000.000</span> Completo: carrito + pasarela (incluye WA carrito)</li>
+        <li><span class="tag base">Esencial · Gs. 10.000.000</span> Catálogo, stock, guía de tallas, WhatsApp, sucursales</li>
+        <li><span class="tag opt">+ Gs. 1.000.000</span> Intermedio: WhatsApp con carrito armado</li>
+        <li><span class="tag opt">+ Gs. 2.000.000</span> Completo: carrito + pasarela (incluye WA carrito)</li>
         <li><span class="tag opt">+ Gs. 250.000</span> Analytics / Pixel</li>
         <li><span class="tag opt">+ Gs. 400.000</span> SEO local</li>
         <li><span class="tag opt">+ Gs. 450.000</span> <a href="campana.html">Landing Feria Roja</a></li>
