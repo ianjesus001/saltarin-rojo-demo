@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pagar — Saltarín Rojo® Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-inner">
+  <header class="site-header">
+    <a class="logo" href="index.html">Saltarín Rojo</a>
+    <a class="cart-btn" href="carrito.html">Carrito <span class="cart-badge" data-cart-count hidden>0</span></a>
+  </header>
+
+  <main class="inner-wrap checkout">
+    <p class="opt-badge">Demo de pasarela — no se cobra nada real</p>
+    <h1 class="page-title">Checkout</h1>
+
+    <form id="checkout-form" class="checkout-grid">
+      <fieldset class="checkout-block">
+        <legend>Datos de entrega</legend>
+        <label>Nombre completo<input name="name" required placeholder="Tu nombre" /></label>
+        <label>Teléfono / WhatsApp<input name="phone" required placeholder="09xx xxx xxx" /></label>
+        <label>Entrega
+          <select name="delivery" required>
+            <option value="retiro">Retiro en sucursal</option>
+            <option value="delivery">Delivery Asunción</option>
+          </select>
+        </label>
+        <label>Sucursal / dirección<textarea name="address" rows="2" placeholder="Manzana T / dirección delivery"></textarea></label>
+      </fieldset>
+
+      <fieldset class="checkout-block">
+        <legend>Medio de pago</legend>
+        <label class="pay-option">
+          <input type="radio" name="pay" value="bancard" checked />
+          <span><strong>Bancard</strong> — tarjeta / QR (simulado)</span>
+        </label>
+        <label class="pay-option">
+          <input type="radio" name="pay" value="pagopar" />
+          <span><strong>Pagopar</strong> — tarjeta / billetera (simulado)</span>
+        </label>
+        <label class="pay-option">
+          <input type="radio" name="pay" value="transfer" />
+          <span><strong>Transferencia</strong> — coordinar por WhatsApp</span>
+        </label>
+        <p class="secure-note">Pago seguro vía pasarela oficial. La web no guarda datos de tarjeta.</p>
+      </fieldset>
+
+      <aside class="checkout-aside">
+        <h2>Resumen</h2>
+        <div id="checkout-lines"></div>
+        <div class="cart-total-row">
+          <span>Total</span>
+          <strong id="checkout-total">Gs. 0</strong>
+        </div>
+        <button class="btn btn-primary" type="submit">Pagar ahora (demo)</button>
+        <a class="btn btn-ghost-dark" href="carrito.html">Volver al carrito</a>
+      </aside>
+    </form>
+  </main>
+
+  <script src="cart.js"></script>
+  <script src="demo-panel.js"></script>
+  <script>
+    const items = SRCart.get();
+    if (!items.length) location.href = "carrito.html";
+
+    document.getElementById("checkout-lines").innerHTML = items
+      .map((i) => `<p>${i.qty}× ${i.name} <span>${SRCart.formatGs(i.price * i.qty)}</span></p>`)
+      .join("");
+    document.getElementById("checkout-total").textContent = SRCart.formatGs(SRCart.total());
+
+    document.getElementById("checkout-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      sessionStorage.setItem(
+        "sr_demo_order",
+        JSON.stringify({
+          ...data,
+          total: SRCart.total(),
+          items: SRCart.get(),
+          orderId: "SR-" + Math.floor(100000 + Math.random() * 900000),
+        })
+      );
+      SRCart.clear();
+      location.href = "confirmacion.html";
+    });
+  </script>
+</body>
+</html>

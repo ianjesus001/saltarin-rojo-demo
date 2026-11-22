@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrito — Saltarín Rojo® Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-inner">
+  <header class="site-header">
+    <a class="logo" href="index.html">Saltarín Rojo</a>
+    <nav class="nav" aria-label="Principal">
+      <a href="index.html#catalogo">Catálogo</a>
+      <a href="tallas.html">Tallas</a>
+      <a href="campana.html">Feria Roja</a>
+    </nav>
+    <a class="cart-btn is-active" href="carrito.html">Carrito <span class="cart-badge" data-cart-count hidden>0</span></a>
+  </header>
+
+  <main class="inner-wrap">
+    <p class="opt-badge">Carrito + pago online opcional · WhatsApp con pedido armado también</p>
+    <h1 class="page-title">Tu carrito</h1>
+    <div id="cart-empty" class="cart-empty" hidden>
+      <p>El carrito está vacío.</p>
+      <a class="btn btn-primary" href="index.html#catalogo">Ir al catálogo</a>
+    </div>
+    <div id="cart-filled">
+      <div id="cart-lines" class="cart-lines"></div>
+      <div class="cart-summary">
+        <div class="cart-total-row">
+          <span>Total</span>
+          <strong id="cart-total">Gs. 0</strong>
+        </div>
+        <a class="btn btn-wa" data-wa-cart href="#" target="_blank" rel="noopener">Enviar pedido por WhatsApp</a>
+        <a class="btn btn-primary" href="checkout.html">Pagar online (demo pasarela)</a>
+        <a class="btn btn-ghost-dark" href="index.html#catalogo">Seguir comprando</a>
+        <p class="secure-note">WhatsApp abre un mensaje con productos, talles y total listos para confirmar stock.</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="cart.js"></script>
+  <script src="demo-panel.js"></script>
+  <script>
+    const render = () => {
+      const items = SRCart.get();
+      const empty = document.getElementById("cart-empty");
+      const filled = document.getElementById("cart-filled");
+      const lines = document.getElementById("cart-lines");
+      if (!items.length) {
+        empty.hidden = false;
+        filled.hidden = true;
+        return;
+      }
+      empty.hidden = true;
+      filled.hidden = false;
+      lines.innerHTML = items.map((i) => `
+        <article class="cart-line">
+          <img src="${i.image}" alt="" />
+          <div>
+            <h2>${i.name}</h2>
+            <p>${SRCart.formatGs(i.price)}${i.size ? ` · Talle ${i.size}` : ""}</p>
+            <div class="qty">
+              <button type="button" data-qty="${i.id}" data-size="${i.size || ""}" data-delta="-1">−</button>
+              <span>${i.qty}</span>
+              <button type="button" data-qty="${i.id}" data-size="${i.size || ""}" data-delta="1">+</button>
+              <button type="button" class="linkish" data-remove="${i.id}" data-size="${i.size || ""}">Quitar</button>
+            </div>
+          </div>
+          <strong>${SRCart.formatGs(i.price * i.qty)}</strong>
+        </article>
+      `).join("");
+      document.getElementById("cart-total").textContent = SRCart.formatGs(SRCart.total());
+      document.querySelectorAll("[data-wa-cart]").forEach((el) => {
+        el.href = SRCart.whatsappUrl();
+      });
+    };
+
+    document.getElementById("cart-lines").addEventListener("click", (e) => {
+      const qtyBtn = e.target.closest("[data-qty]");
+      if (qtyBtn) {
+        const size = qtyBtn.dataset.size || "";
+        const item = SRCart.get().find(
+          (i) => i.id === qtyBtn.dataset.qty && (i.size || "") === size
+        );
+        if (!item) return;
+        SRCart.setQty(item.id, size, item.qty + Number(qtyBtn.dataset.delta));
+        render();
+      }
+      const rm = e.target.closest("[data-remove]");
+      if (rm) {
+        SRCart.remove(rm.dataset.remove, rm.dataset.size || "");
+        render();
+      }
+    });
+
+    window.addEventListener("sr-cart-updated", render);
+    document.addEventListener("DOMContentLoaded", render);
+  </script>
+</body>
+</html>

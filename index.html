@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saltarín Rojo® — Demo completa</title>
+  <meta name="description" content="Demo completa: catálogo, carrito, pasarela, campaña y más. Asunción, Paraguay." />
+  <meta property="og:title" content="Saltarín Rojo® — Todo para tu deporte" />
+  <meta property="og:description" content="Indumentaria, accesorios y personalizados. Catálogo y delivery en Asunción." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="analytics-pill" title="Opcional: Analytics + Meta Pixel">
+    <span class="dot"></span> Analytics demo activo
+  </div>
+
+  <header class="site-header" id="top">
+    <a class="logo" href="index.html">Saltarín Rojo</a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#catalogo">Catálogo</a>
+      <a href="tallas.html">Tallas</a>
+      <a href="campana.html">Feria Roja</a>
+      <a href="#sucursales">Sucursales</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/595981701333" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="cart-btn" href="carrito.html" aria-label="Carrito">
+      Carrito
+      <span class="cart-badge" data-cart-count hidden>0</span>
+    </a>
+    <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-nav" hidden>
+    <a href="#catalogo">Catálogo</a>
+    <a href="tallas.html">Tallas</a>
+    <a href="campana.html">Feria Roja</a>
+    <a href="#sucursales">Sucursales</a>
+    <a href="carrito.html">Carrito</a>
+    <a href="https://wa.me/595981701333" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+
+  <main>
+    <section class="hero" aria-label="Inicio">
+      <div class="hero-media" role="img" aria-label="Indumentaria deportiva"></div>
+      <div class="hero-veil"></div>
+      <div class="hero-content">
+        <p class="hero-brand">Saltarín Rojo®</p>
+        <h1>Todo para tu deporte, en un solo lugar</h1>
+        <p class="hero-lead">Indumentaria, accesorios y personalizados. Comprá online o pedí por WhatsApp. Retiro en sucursal o delivery.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
+          <a class="btn btn-ghost" href="https://wa.me/595981701333" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <a class="promo-strip" href="campana.html">
+      <span>Edición limitada · Feria Roja 2026</span>
+      <span class="promo-strip-cta">Ver landing de campaña →</span>
+    </a>
+
+    <section class="categories reveal" id="categorias" aria-labelledby="cat-title">
+      <div class="section-head">
+        <h2 id="cat-title">Categorías</h2>
+        <p>Encontrá lo que necesitás para entrenar, jugar o personalizar tu equipo.</p>
+      </div>
+      <div class="category-grid">
+        <a class="category" href="#catalogo" style="--img: url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1200&q=80')">
+          <span class="category-name">Indumentaria</span>
+          <span class="category-hint">Camisetas, shorts, buzos</span>
+        </a>
+        <a class="category" href="#catalogo" style="--img: url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80')">
+          <span class="category-name">Accesorios</span>
+          <span class="category-hint">Guantes, medias, bolsos</span>
+        </a>
+        <a class="category" href="https://wa.me/595981701333?text=Hola%2C%20quiero%20consultar%20por%20personalizados" target="_blank" rel="noopener" style="--img: url('https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=1200&q=80')">
+          <span class="category-name">Personalizados</span>
+          <span class="category-hint">Nombre, número, club</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="catalog reveal" id="catalogo" aria-labelledby="prod-title">
+      <div class="section-head">
+        <h2 id="prod-title">Destacados</h2>
+        <p>Elegí talle, mirá el stock y agregá al carrito. <a href="tallas.html">Ver guía de tallas</a>.</p>
+      </div>
+      <div class="product-grid">
+        <article class="product">
+          <div class="product-media">
+            <span class="stock-badge in">En stock</span>
+            <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc561d?auto=format&fit=crop&w=800&q=80" alt="Camiseta training roja" loading="lazy" />
+          </div>
+          <h3>Camiseta Training Roja</h3>
+          <p class="price">Gs. 185.000</p>
+          <label class="size-label">Talle
+            <select data-size-select required>
+              <option value="">Elegir</option>
+              <option>S</option><option>M</option><option>L</option><option>XL</option>
+            </select>
+          </label>
+          <div class="product-actions">
+            <button type="button" class="btn btn-primary btn-sm" data-add-cart data-stock="in" data-id="cam-roja" data-name="Camiseta Training Roja" data-price="185000" data-image="https://images.unsplash.com/photo-1586790170083-2f9ceadc561d?auto=format&fit=crop&w=400&q=80">Agregar</button>
+            <a class="product-link" href="tallas.html#remeras">Guía tallas</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-media">
+            <span class="stock-badge low">Últimas unidades</span>
+            <img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=800&q=80" alt="Shorts deportivos negros" loading="lazy" />
+          </div>
+          <h3>Shorts Pro Negro</h3>
+          <p class="price">Gs. 120.000</p>
+          <label class="size-label">Talle
+            <select data-size-select required>
+              <option value="">Elegir</option>
+              <option>S</option><option>M</option><option>L</option><option>XL</option>
+            </select>
+          </label>
+          <div class="product-actions">
+            <button type="button" class="btn btn-primary btn-sm" data-add-cart data-stock="low" data-id="short-neg" data-name="Shorts Pro Negro" data-price="120000" data-image="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=400&q=80">Agregar</button>
+            <a class="product-link" href="tallas.html#shorts">Guía tallas</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-media">
+            <span class="stock-badge out">Agotado</span>
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80" alt="Buzo performance" loading="lazy" />
+          </div>
+          <h3>Buzo Performance</h3>
+          <p class="price">Gs. 245.000</p>
+          <label class="size-label">Talle
+            <select data-size-select disabled>
+              <option>Sin stock</option>
+            </select>
+          </label>
+          <div class="product-actions">
+            <button type="button" class="btn btn-primary btn-sm" disabled data-stock="out">Agotado</button>
+            <a class="product-link" href="https://wa.me/595981701333?text=Hola%2C%20avisame%20cuando%20llegue%20el%20Buzo%20Performance" target="_blank" rel="noopener">Avisarme</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-media">
+            <span class="stock-badge ask">Consultar</span>
+            <img src="https://images.unsplash.com/photo-1614632537197-38f529b55183?auto=format&fit=crop&w=800&q=80" alt="Guantes de arquero" loading="lazy" />
+          </div>
+          <h3>Guantes Arquero HO</h3>
+          <p class="price">Gs. 320.000</p>
+          <label class="size-label">Talle
+            <select data-size-select required>
+              <option value="">Elegir</option>
+              <option>7</option><option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="product-actions">
+            <button type="button" class="btn btn-primary btn-sm" data-add-cart data-stock="ask" data-id="guantes" data-name="Guantes Arquero HO" data-price="320000" data-image="https://images.unsplash.com/photo-1614632537197-38f529b55183?auto=format&fit=crop&w=400&q=80">Agregar</button>
+            <a class="product-link" href="tallas.html#guantes">Guía tallas</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-media">
+            <span class="stock-badge in">En stock</span>
+            <img src="https://images.unsplash.com/photo-1586350977771-b3b0abd50c8c?auto=format&fit=crop&w=800&q=80" alt="Medias deportivas" loading="lazy" />
+          </div>
+          <h3>Medias Pro Pack</h3>
+          <p class="price">Gs. 55.000</p>
+          <label class="size-label">Talle
+            <select data-size-select required>
+              <option value="">Elegir</option>
+              <option>S</option><option>M</option><option>L</option>
+            </select>
+          </label>
+          <div class="product-actions">
+            <button type="button" class="btn btn-primary btn-sm" data-add-cart data-stock="in" data-id="medias" data-name="Medias Pro Pack" data-price="55000" data-image="https://images.unsplash.com/photo-1586350977771-b3b0abd50c8c?auto=format&fit=crop&w=400&q=80">Agregar</button>
+            <a class="product-link" href="tallas.html#medias">Guía tallas</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-media">
+            <span class="stock-badge in">En stock</span>
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Botines deportivos" loading="lazy" />
+          </div>
+          <h3>Botines Club FG</h3>
+          <p class="price">Gs. 390.000</p>
+          <label class="size-label">Talle EU
+            <select data-size-select required>
+              <option value="">Elegir</option>
+              <option>40</option><option>41</option><option>42</option><option>43</option><option>44</option>
+            </select>
+          </label>
+          <div class="product-actions">
+            <button type="button" class="btn btn-primary btn-sm" data-add-cart data-stock="in" data-id="botines" data-name="Botines Club FG" data-price="390000" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80">Agregar</button>
+            <a class="product-link" href="tallas.html#zapatos">Guía tallas</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="stores reveal" id="sucursales" aria-labelledby="stores-title">
+      <div class="section-head light">
+        <h2 id="stores-title">Sucursales</h2>
+        <p>SEO local demo: fichas claras por local para Google y clientes.</p>
+      </div>
+      <div class="store-list">
+        <article class="store" itemscope itemtype="https://schema.org/LocalBusiness">
+          <h3 itemprop="name">Manzana T</h3>
+          <p itemprop="address">Mcal. López y Cruz del Chaco — Villa Morra</p>
+          <a href="tel:+595981330388" itemprop="telephone">+595 981 330388</a>
+          <p class="store-meta">Lun–Vie 9:00–19:00</p>
+        </article>
+        <article class="store" itemscope itemtype="https://schema.org/LocalBusiness">
+          <h3 itemprop="name">Casa Central</h3>
+          <p itemprop="address">Colón esq. Ygatimí — Centro Asunción</p>
+          <a href="tel:+595971125317" itemprop="telephone">+595 971 125317</a>
+          <p class="store-meta">Lun–Vie 9:00–19:00</p>
+        </article>
+        <article class="store" itemscope itemtype="https://schema.org/LocalBusiness">
+          <h3 itemprop="name">San Lorenzo</h3>
+          <p itemprop="address">Defensores del Chaco esq. Gral. Caballero</p>
+          <a href="tel:+595981437033" itemprop="telephone">+595 981 437033</a>
+          <p class="store-meta">Lun–Vie 9:00–19:00</p>
+        </article>
+      </div>
+      <a class="btn btn-primary stores-cta" href="https://wa.me/595981701333?text=Hola%2C%20quiero%20hacer%20un%20pedido%20por%20delivery" target="_blank" rel="noopener">Delivery por WhatsApp</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <strong>Saltarín Rojo®</strong>
+      <p>Confección de indumentaria deportiva · Tienda multimarcas</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/saltarinrojo/" target="_blank" rel="noopener">Instagram @saltarinrojo</a>
+      <a href="tallas.html">Tallas</a>
+      <a href="campana.html">Feria Roja</a>
+      <a href="carrito.html">Carrito</a>
+      <a href="https://wa.me/595981701333" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="footer-note">Demo completa de interfaz — no procesa pagos reales ni es el sitio oficial.</p>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script src="script.js"></script>
+  <script src="demo-panel.js"></script>
+</body>
+</html>

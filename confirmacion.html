@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pedido confirmado — Saltarín Rojo® Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-inner">
+  <header class="site-header">
+    <a class="logo" href="index.html">Saltarín Rojo</a>
+  </header>
+
+  <main class="inner-wrap confirm">
+    <p class="opt-badge">Simulación — en producción lo confirma Bancard / Pagopar</p>
+    <h1 class="page-title">¡Listo!</h1>
+    <p class="confirm-lead">Tu pedido demo quedó registrado. En la web real, el pago se acredita por la pasarela y el equipo recibe el aviso.</p>
+    <div id="order-box" class="order-box"></div>
+    <div class="confirm-actions">
+      <a class="btn btn-primary" href="index.html">Volver al inicio</a>
+      <a class="btn btn-ghost-dark" href="https://wa.me/595981701333" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+  </main>
+
+  <script src="cart.js"></script>
+  <script src="demo-panel.js"></script>
+  <script>
+    const raw = sessionStorage.getItem("sr_demo_order");
+    const box = document.getElementById("order-box");
+    if (!raw) {
+      box.innerHTML = "<p>No hay pedido demo. <a href='index.html#catalogo'>Ir al catálogo</a></p>";
+    } else {
+      const o = JSON.parse(raw);
+      const payLabel = { bancard: "Bancard", pagopar: "Pagopar", transfer: "Transferencia" }[o.pay] || o.pay;
+      box.innerHTML = `
+        <p><strong>N.º pedido:</strong> ${o.orderId}</p>
+        <p><strong>Cliente:</strong> ${o.name}</p>
+        <p><strong>Teléfono:</strong> ${o.phone}</p>
+        <p><strong>Entrega:</strong> ${o.delivery === "delivery" ? "Delivery" : "Retiro"} — ${o.address || "—"}</p>
+        <p><strong>Pago:</strong> ${payLabel}</p>
+        <p><strong>Total:</strong> ${SRCart.formatGs(o.total)}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
