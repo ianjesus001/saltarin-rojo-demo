@@ -4,15 +4,15 @@
   panel.innerHTML = `
     <button type="button" class="demo-panel-toggle" aria-expanded="true">Demo · qué estás viendo</button>
     <div class="demo-panel-body">
-      <p class="demo-panel-lead">Vista previa completa (base + opcionales). No es cobro real.</p>
+      <p class="demo-panel-lead">Vista previa completa (base + opcionales). Montos en guaraníes. No es cobro real.</p>
       <ul>
-        <li><span class="tag base">Base</span> Catálogo, stock, guía de tallas, WhatsApp, sucursales</li>
-        <li><span class="tag opt">+1M</span> Carrito + pasarela (Bancard/Pagopar)</li>
-        <li><span class="tag opt">+250k</span> WhatsApp con carrito armado</li>
-        <li><span class="tag opt">+250k</span> Analytics / Pixel</li>
-        <li><span class="tag opt">+400k</span> SEO local</li>
-        <li><span class="tag opt">+450k</span> <a href="campana.html">Landing Feria Roja</a></li>
-        <li><span class="tag opt">+150k</span> Vista previa al compartir</li>
+        <li><span class="tag base">Base · Gs. 10.000.000</span> Catálogo, stock, guía de tallas, WhatsApp, sucursales</li>
+        <li><span class="tag opt">+ Gs. 250.000</span> WhatsApp con carrito armado</li>
+        <li><span class="tag opt">+ Gs. 1.000.000</span> Completo: carrito + pasarela (incluye WA carrito)</li>
+        <li><span class="tag opt">+ Gs. 250.000</span> Analytics / Pixel</li>
+        <li><span class="tag opt">+ Gs. 400.000</span> SEO local</li>
+        <li><span class="tag opt">+ Gs. 450.000</span> <a href="campana.html">Landing Feria Roja</a></li>
+        <li><span class="tag opt">+ Gs. 150.000</span> Vista previa al compartir</li>
       </ul>
       <div class="demo-share-mock" aria-hidden="true">
         <p class="demo-share-label">Así se vería el link en WhatsApp</p>
